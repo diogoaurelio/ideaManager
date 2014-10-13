@@ -24,7 +24,8 @@
     <%= f.number_field :votes %>
   </div>
   <div class="actions">
-    <!-- <#%= f.submit %> -->
-    <a class="btn btn-large btn-primary" href="<%= create_idea_path %>">Create Idea</a> 
+     <!-- <#%= f.submit %> -->
+     <button name="commit" type="submit" value="Create Idea" class="btn btn-default btn-lg">Create Idea</button>
+    <!--<a class="btn btn-large btn-primary" href="<#%= create_idea_path(@idea) %>">Create Idea</a> -->
   </div>
 <% end %>
