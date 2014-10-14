@@ -6,4 +6,19 @@ Bootstrap setup: http://railscasts.com/episodes/328-twitter-bootstrap-basics?aut
 
 
 rails g scaffold idea name price:decimal --skip-stylesheets
+
+#Reference: http://tutorials.jumpstartlab.com/projects/blogger.html#i3:-tagging
 rails g model Idea name:string area:string votes:integer
+rails g model Area name:string 
+rails g model AreaInterface idea:references area:references
+
+Idea has_one :area
+Area has_many :ideas
+
+c = Area.new
+c.name = "Business Development"
+c.save
+#Or:
+d = Area.create(name:"Business Development")
+d1 = Area.find(1)
+d2 = d1.update(name:"Business Development")
