@@ -7,3 +7,4 @@ Bootstrap setup: http://railscasts.com/episodes/328-twitter-bootstrap-basics?aut
 
 rails g scaffold idea name price:decimal --skip-stylesheets
 rails g model Idea name:string area:string votes:integer
+localenv.yml
