@@ -16,25 +16,32 @@
 
       <div class="jumbotron">
         <h1>Idea Manager</h1>
-        <p class="lead">Internal App for collecting Ideas for improving different Areas.</p>
+        <p class="lead">Internal App for collecting Ideas for improving different Areas. The idea is not to enter complaints or problems that you are facing, but rather Solutions! Embrace Continuous Improvement in your Team/Start-up/Company and ideas from everyone!</p>
         <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
       </div>
 
+
       <div class="row marketing">
-        <#% @areas.each do |area| %>
-          <% @ideas.each do |idea| %>
-            <div class="col-md-6">
-              <h4><%= idea.name %> </h4>
-              <p><#%= idea.area %></p>
-              <span class="badge"><%= idea.votes %></span>
-              <%= link_to 'Show', idea %>
-              <%= link_to 'Edit', edit_idea_path(idea) %></td>
-              <%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        <h1>Listing of new ideas to Vote</h1>
+            <% @ideas.each do |idea| %>
+            <div class="col-md-4">
+              <tr>
+                <td><h4> <%= idea.name %></h4></td>
+              </tr>
+              <tr>
+                <h6> Area: <%= idea.area %></h6>
+                <h6> Votes: <%= idea.votes %></h6>
+                <%= link_to 'Show', idea %>
+                <%= link_to 'Edit', edit_idea_path(idea) %>
+                <%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
-          <#% end %>
-        <% end %>
+            <% end %>
+        <br>
+
       </div>
-        
+      <a class="btn btn-lg btn-success" href="<%= new_idea_path %>" role="button">New Idea</a></p> 
+      <%= link_to 'New Idea', new_idea_path %>
 
         <div class="col-lg-6">
           <h4>Subheading</h4>

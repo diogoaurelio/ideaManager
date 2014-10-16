@@ -16,6 +16,16 @@ ActiveRecord::Schema.define(version: 20141014202033) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "area_interfaces", force: true do |t|
+    t.integer  "idea_id"
+    t.integer  "area_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "area_interfaces", ["area_id"], name: "index_area_interfaces_on_area_id", using: :btree
+  add_index "area_interfaces", ["idea_id"], name: "index_area_interfaces_on_idea_id", using: :btree
+
   create_table "areainterfaces", force: true do |t|
     t.integer  "idea_id"
     t.integer  "area_id"
