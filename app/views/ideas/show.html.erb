@@ -5,14 +5,21 @@
   <%= @idea.name %>
 </p>
 
-<p>
+<!-- <p>
   <strong>Area:</strong>
-  <%= @idea.area %>
+  <#%= @idea.area %>
 </p>
-
+-->
 <p>
   <strong>Votes:</strong>
   <%= @idea.votes %>
+</p>
+
+<p>
+  Areas:
+  <% @idea.areas.each do |area| %>
+    <%= link_to area.name, area_path(area) %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_idea_path(@idea) %> |

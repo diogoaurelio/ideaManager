@@ -6,5 +6,43 @@ Bootstrap setup: http://railscasts.com/episodes/328-twitter-bootstrap-basics?aut
 
 
 rails g scaffold idea name price:decimal --skip-stylesheets
+<<<<<<< HEAD
+
+#Reference: http://tutorials.jumpstartlab.com/projects/blogger.html#i3:-tagging
+note to self: idea = article
+note to self: tag = area
+
 rails g model Idea name:string area:string votes:integer
+rails g model Area name:string 
+rails g model AreaInterface idea:references area:references
+
+#Since the relationship between area and ideas is a many-to-many, added an interface in between to make it easier to model
+/models/idea.rb
+Idea has_many :areainterfaces
+Idea has_many :areas, through: :areainterfaces
+
+/models/area.rb
+Area has_many :areainterfaces
+Area has_many :ideas, through: :areainterfaces
+
+/models/areainterface.rb
+Areainterface has_one :area
+Areainterface has_one :idea
+
+
+rails g controller areas
+
+
+
+
+c = Area.new
+c.name = "Business Development"
+c.save
+#Or:
+d = Area.create(name:"Business Development")
+d1 = Area.find(1)
+d2 = d1.update(name:"Business Development")
+
+
 localenv.yml
+

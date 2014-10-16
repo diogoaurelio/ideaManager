@@ -1,0 +1,7 @@
+<h1>Ideas Tagged with <%= @area.name %></h1>
+
+<ul>
+  <% @area.ideas.each do |idea| %>
+    <li><%= link_to idea.name, idea_path(idea) %></li>
+  <% end %>
+</ul>
