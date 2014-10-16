@@ -21,17 +21,17 @@
       </div>
 
       <div class="row marketing">
-        <% @areas.each do |area| %>
+        <#% @areas.each do |area| %>
           <% @ideas.each do |idea| %>
             <div class="col-md-6">
               <h4><%= idea.name %> </h4>
-              <p><%= idea.area %></p>
+              <p><#%= idea.area %></p>
               <span class="badge"><%= idea.votes %></span>
               <%= link_to 'Show', idea %>
               <%= link_to 'Edit', edit_idea_path(idea) %></td>
               <%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
-          <% end %>
+          <#% end %>
         <% end %>
       </div>
         

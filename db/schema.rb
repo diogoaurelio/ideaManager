@@ -13,15 +13,8 @@
 
 ActiveRecord::Schema.define(version: 20141014202033) do
 
-  create_table "area_interfaces", force: true do |t|
-    t.integer  "idea_id"
-    t.integer  "area_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "area_interfaces", ["area_id"], name: "index_area_interfaces_on_area_id"
-  add_index "area_interfaces", ["idea_id"], name: "index_area_interfaces_on_idea_id"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "areainterfaces", force: true do |t|
     t.integer  "idea_id"
@@ -30,17 +23,14 @@ ActiveRecord::Schema.define(version: 20141014202033) do
     t.datetime "updated_at"
   end
 
-  add_index "areainterfaces", ["area_id"], name: "index_areainterfaces_on_area_id"
-  add_index "areainterfaces", ["idea_id"], name: "index_areainterfaces_on_idea_id"
+  add_index "areainterfaces", ["area_id"], name: "index_areainterfaces_on_area_id", using: :btree
+  add_index "areainterfaces", ["idea_id"], name: "index_areainterfaces_on_idea_id", using: :btree
 
   create_table "areas", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
 
   create_table "ideas", force: true do |t|
     t.string   "name"
