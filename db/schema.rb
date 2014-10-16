@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014201330) do
+ActiveRecord::Schema.define(version: 20141014202033) do
 
   create_table "area_interfaces", force: true do |t|
     t.integer  "idea_id"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20141014201330) do
 
   add_index "area_interfaces", ["area_id"], name: "index_area_interfaces_on_area_id"
   add_index "area_interfaces", ["idea_id"], name: "index_area_interfaces_on_idea_id"
+
+  create_table "areainterfaces", force: true do |t|
+    t.integer  "idea_id"
+    t.integer  "area_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "areainterfaces", ["area_id"], name: "index_areainterfaces_on_area_id"
+  add_index "areainterfaces", ["idea_id"], name: "index_areainterfaces_on_idea_id"
 
   create_table "areas", force: true do |t|
     t.string   "name"
