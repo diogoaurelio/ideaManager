@@ -39,6 +39,9 @@ ActiveRecord::Schema.define(version: 20141014202033) do
     t.datetime "updated_at"
   end
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "ideas", force: true do |t|
     t.string   "name"
     t.string   "area"
