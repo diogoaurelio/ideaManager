@@ -5,67 +5,39 @@
   <#%= javascript_include_tag '' %>
 <% end %>
 
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="<%= root_path %>">Home</a></li>
-          <li><a href="#">Sign in</a></li>
-          <li><a href="#">Sign Up</a></li>
-        </ul>
-        <h3 class="text-muted">Idea Manager</h3>
-      </div>
-
       <div class="jumbotron">
         <h1>Idea Manager</h1>
         <p class="lead">Internal App for collecting Ideas for improving different Areas. The idea is not to enter complaints or problems that you are facing, but rather Solutions! Embrace Continuous Improvement in your Team/Start-up/Company and ideas from everyone!</p>
+        <p> Propose new ideas <em>anonymously</em>, and if your idea gets the most votes you can decide to reveal your identity. </p>
         <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
       </div>
 
-
-      <div class="row marketing">
-
-        <h1>Listing of new ideas to Vote</h1>
-            <% @ideas.each do |idea| %>
-            <div class="col-md-4">
-              <tr>
-                <td><h4> <%= idea.name %></h4></td>
-              </tr>
-              <tr>
-                <h6> Area: <%= idea.area %></h6>
-                <h6> Votes: <%= idea.votes %></h6>
-                <%= link_to 'Show', idea %>
-                <%= link_to 'Edit', edit_idea_path(idea) %>
-                <%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </div>
-            <% end %>
-        <br>
-
-      </div>
-      <a class="btn btn-lg btn-success" href="<%= new_idea_path %>" role="button">New Idea</a></p> 
-      <%= link_to 'New Idea', new_idea_path %>
-
+      <h1>Example Ideas</h1>
         <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+          <h4>New Flipcharts</h4>
+          <p> <em>"We need Flipcharts around the office the better communicate among teams".</em></p>
+          <p>Votes: <span class="badge">55</span></p>
 
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+          <h4>Free Snacks</h4>
+          <p><em>"Sugar helps to stimulate the brain. We want sugar rush!"</em></p>
+          <p>Votes: <span class="badge">11</span></p>
 
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <h4>Better Dashboards</h4>
+          <p><em>"We need to create a dashboard whose data is feed by querying the database - no more Manual Validation!"</em></p>
+          <p>Votes: <span class="badge">65</span></p>
         </div>
 
         <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+          <h4>Google OKR methodology</h4>
+          <p><em>"We should implement Objective Key-Results."</em></p>
+          <p>Votes: <span class="badge">12</span></p>
 
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+          <h4>Attract Talent</h4>
+          <p><em>"We should focus on attracting talent - Video promoting our company´s awesome workplace."</em></p>
+          <p>Votes: <span class="badge">23</span></p>
 
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <h4>Central repository for new Ideas</h4>
+          <p><em>"We need a central place where everyone in the company can make suggestions of improvements. Everyone needs to be involved in Innovation!"</em></p>
+          <p>Votes: <span class="badge">42</span></p>
         </div>
-      </div>
-
-      <div class="footer">
-        <p>© Company 2014</p>
       </div>
