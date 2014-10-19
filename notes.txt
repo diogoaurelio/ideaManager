@@ -32,7 +32,8 @@ Areainterface has_one :idea
 
 rails g controller areas
 
-
+#Note: Problem with Dropdown - solved changing order of rendering JavaScropt.
+#Note: Problem with wrong colors with Flash messages: corrected through this stackoverflow thread: http://stackoverflow.com/questions/22108286/wrong-color-for-flash-messages-under-rails-4-1-with-bootstrap-or-foundation
 
 
 c = Area.new

@@ -1,4 +1,4 @@
-<%= form_for(@idea) do |f| %>
+<%= form_for(@idea, html: { class: 'form-horizontal'}) do |f| %>
   <% if @idea.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Enter name for your idea' %>
   </div>
   <div class="field">
     <%= f.label :area_list %><br>
-    <%= f.text_field :area_list %>
+    <%= f.text_field :area_list, class: 'form-control', placeholder: 'Enter the company area; eg: Marketing' %>
   </div>
   <div class="field">
     <%= f.label :votes %><br>
