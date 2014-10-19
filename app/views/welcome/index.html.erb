@@ -10,7 +10,10 @@
         <p> Propose new ideas <em>anonymously</em>, and if your idea gets the most votes you can decide to reveal your identity. </p>
         <% unless user_signed_in? %>
           <p><a class="btn btn-lg btn-success" href="<%= new_user_registration_path %>" role="button">Sign up today</a></p>
+        <% else %>
+            <a class="btn btn-lg btn-success" href="<%= new_idea_path %>" role="button">New Idea</a></p> 
         <% end %>
+
       </div>
 
       <h1>Example Ideas</h1>
