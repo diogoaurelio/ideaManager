@@ -15,14 +15,28 @@
     <%= f.label :name %><br>
     <%= f.text_field :name, class: 'form-control', placeholder: 'Enter name for your idea' %>
   </div>
+    <!-- Added Area Dropdown list -->
   <div class="field">
-    <%= f.label :area_list %><br>
-    <%= f.text_field :area_list, class: 'form-control', placeholder: 'Enter the company area; eg: Marketing' %>
+    <%= f.label 'Business Area' %><br />
+    <%= f.collection_select(:area_list, Area.all, :name, :name, { prompt: 'Select a Business Unit' }, class: 'form-control') %>
   </div>
+  <!--
   <div class="field">
-    <%= f.label :votes %><br>
-    <%= f.number_field :votes %>
+    <#%= f.label :area_list %><br>
+    <#%= f.text_field :area_list, class: 'form-control', placeholder: 'Enter the company area; eg: Marketing' %>
   </div>
+  -->
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, class: 'form-control', placeholder: 'Enter a description of the idea' %>
+  </div>
+  <!-- Removed Voting here
+  <div class="field">
+    <#%= f.label :votes %><br>
+    <#%= f.number_field :votes %>
+  </div>
+  -->
+
   <div class="actions">
      <!-- <#%= f.submit %> -->
      <button name="commit" type="submit" value="Create Idea" class="btn btn-default btn-lg">Create Idea</button>

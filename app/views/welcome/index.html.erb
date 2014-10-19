@@ -4,12 +4,13 @@
 <% content_for :footer do %>
   <#%= javascript_include_tag '' %>
 <% end %>
-
       <div class="jumbotron">
         <h1>Idea Manager</h1>
         <p class="lead">Internal App for collecting Ideas for improving different Areas. The idea is not to enter complaints or problems that you are facing, but rather Solutions! Embrace Continuous Improvement in your Team/Start-up/Company and ideas from everyone!</p>
         <p> Propose new ideas <em>anonymously</em>, and if your idea gets the most votes you can decide to reveal your identity. </p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+        <% unless user_signed_in? %>
+          <p><a class="btn btn-lg btn-success" href="<%= new_user_registration_path %>" role="button">Sign up today</a></p>
+        <% end %>
       </div>
 
       <h1>Example Ideas</h1>

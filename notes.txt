@@ -35,6 +35,13 @@ rails g controller areas
 #Note: Problem with Dropdown - solved changing order of rendering JavaScropt.
 #Note: Problem with wrong colors with Flash messages: corrected through this stackoverflow thread: http://stackoverflow.com/questions/22108286/wrong-color-for-flash-messages-under-rails-4-1-with-bootstrap-or-foundation
 
+#Change DB scheme: http://guides.rubyonrails.org/migrations.html
+rails g migration AddDescriptionToIdeas
+
+
+#Adding ability for selection of Areas from dropdown list of table Area:
+http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html
+
 
 c = Area.new
 c.name = "Business Development"

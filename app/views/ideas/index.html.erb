@@ -8,7 +8,8 @@
                 <td><h4> <%= idea.name %></h4></td>
               </tr>
               <tr>
-                <h6> Area: <%= idea.area %></h6>
+                <h6> Description:"<em> <%= idea.description %> </em>"</h6>
+                <h6> Area: <%= idea.area_list %></h6>
                 <h6> Votes: <span class="badge"><%= idea.votes %></span></h6>
                 <%= link_to 'Show', idea %>
                 <%= link_to 'Edit', edit_idea_path(idea) %>
@@ -19,7 +20,6 @@
 
       </div>
       <a class="btn btn-lg btn-success" href="<%= new_idea_path %>" role="button">New Idea</a></p> 
-      <%= link_to 'New Idea', new_idea_path %>
 
       <br>
 

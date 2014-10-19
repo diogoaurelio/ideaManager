@@ -5,20 +5,26 @@
   <%= @idea.name %>
 </p>
 
+<p>
+  <strong>Description:</strong>
+  <%= @idea.description %>
+</p>
+
 <!-- <p>
   <strong>Area:</strong>
   <#%= @idea.area %>
 </p>
--->
+
 <p>
   <strong>Votes:</strong>
   <%= @idea.votes %>
 </p>
-
+-->
 <p>
-  Areas:
+  Belongs to:
   <% @idea.areas.each do |area| %>
-    <%= link_to area.name, area_path(area) %>
+    <%= link_to @idea.area_list, area_path(area) %>
+    <!-- <#%= link_to @idea.area_list, area_path(area_list) %> -->
   <% end %>
 </p>
 
