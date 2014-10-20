@@ -2,7 +2,7 @@
 Dev helper Notes
 
 #Add Switch Button: http://www.bootstrap-switch.org/
-
+#Sort by Month: http://railscasts.com/episodes/29-group-by-month | http://asciicasts.com/episodes/29-group-by-month
 
 Bootstrap setup: http://railscasts.com/episodes/328-twitter-bootstrap-basics?autoplay=true
 

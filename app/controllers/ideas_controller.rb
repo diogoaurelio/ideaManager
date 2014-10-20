@@ -6,6 +6,7 @@ class IdeasController < ApplicationController
   # GET /ideas.json
   def index
     @ideas = Idea.all
+    @idea_months = @ideas.group_by { |t| t.created_at.beginning_of_month }
   end
 
   # GET /ideas/1

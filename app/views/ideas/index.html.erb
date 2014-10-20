@@ -1,13 +1,19 @@
+      <!-- Ideas by month -->
+      <div class="row marketing">
+        <% @idea_months.sort.each do |month, ideas| %>  
+          <h2><%= month.strftime("%B %Y") %> Ideas</h2>  
+          <% ideas.each do |idea| %>  
+            <p><b><%= idea.name %></b> created at at <%= idea.created_at.to_date.to_s(:long) %></p>  
+          <% end %>  
+        <% end %> 
+      </div>
 
       <div class="row marketing">
 
         <h1>Listing of new ideas to Vote</h1>
             <% @ideas.each do |idea| %>
             <div class="col-md-4">
-              <tr>
-                <td><h4> <%= idea.name %></h4></td>
-              </tr>
-              <tr>
+                <h4> <%= idea.name %></h4>
                 <h6> Description:"<em> <%= idea.description %> </em>"</h6>
                 <h6> Area: <%= idea.area_list %></h6>
                 <h6> Votes: <span class="badge"><%= idea.votes %></span></h6>
