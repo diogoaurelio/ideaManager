@@ -1,10 +1,23 @@
       <!-- Ideas by month -->
       <div class="row marketing">
         <% @idea_months.sort.each do |month, ideas| %>  
-          <h2><%= month.strftime("%B %Y") %> Ideas</h2>  
+          <h3><%= month.strftime("%B %Y") %> Ideas</h3> 
+          <hr> 
           <% ideas.each do |idea| %>  
-            <p><b><%= idea.name %></b> created at at <%= idea.created_at.to_date.to_s(:long) %></p>  
-          <% end %>  
+          <div class="col-md-4">
+            <h4><b><%= link_to idea.name, idea %></b> </h4> 
+            <h6> Description:"<em> <%= idea.description %> </em>"</h6>
+            <h6> Area: <%= idea.area_list %></h6>
+            <h6> Votes: <span class="badge"><%= idea.votes %></span></h6>
+            <p>Created at at <%= idea.created_at.to_date.to_s(:long) %></p> 
+          </div> 
+          <% end %> 
+          <br>
+
+          <div class="text-center dspace">
+            <a class="btn btn-lg btn-success" href="<%= new_idea_path %>" role="button">New Idea</a>
+          </div>
+          <hr>
         <% end %> 
       </div>
 
@@ -17,7 +30,7 @@
                 <h6> Description:"<em> <%= idea.description %> </em>"</h6>
                 <h6> Area: <%= idea.area_list %></h6>
                 <h6> Votes: <span class="badge"><%= idea.votes %></span></h6>
-                <%= link_to 'Show', idea %>
+                <%= link_to idea.name, idea %>
                 <%= link_to 'Edit', edit_idea_path(idea) %>
                 <%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
@@ -25,7 +38,7 @@
         <br>
 
       </div>
-      <a class="btn btn-lg btn-success" href="<%= new_idea_path %>" role="button">New Idea</a></p> 
+      <a class="btn btn-lg btn-success" href="<%= new_idea_path %>" role="button">New Idea</a>
 
       <br>
 

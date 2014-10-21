@@ -11,7 +11,12 @@
         <% unless user_signed_in? %>
           <p><a class="btn btn-lg btn-success" href="<%= new_user_registration_path %>" role="button">Sign up today</a></p>
         <% else %>
-            <a class="btn btn-lg btn-success" href="<%= new_idea_path %>" role="button">New Idea</a></p> 
+            <p>
+              <a class="btn btn-lg btn-success" href="<%= new_idea_path %>" role="button">New Idea</a>
+            </p>
+            <p>
+              <a class="btn btn-default" href="<%= ideas_path %>" role="button">Browse Existing Ideas</a>
+            </p> 
         <% end %>
 
       </div>
