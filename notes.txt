@@ -1,6 +1,21 @@
 
 Dev helper Notes
 
+#Associations: http://guides.rubyonrails.org/association_basics.html
+
+Idea has_one: user
+user has_many ideas
+
+idea has_many: votes
+
+voting has_many: users
+vonting has_many: ideas
+
+
+#Migrations: http://guides.rubyonrails.org/migrations.html
+rails generate migration AddUserToIdeas user:string
+
+
 #Add Switch Button: http://www.bootstrap-switch.org/
 #Sort by Month: http://railscasts.com/episodes/29-group-by-month | http://asciicasts.com/episodes/29-group-by-month
 
