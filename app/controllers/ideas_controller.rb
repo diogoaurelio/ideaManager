@@ -17,16 +17,23 @@ class IdeasController < ApplicationController
   # GET /ideas/new
   def new
     @idea = Idea.new
+    @idea.user = current_user
   end
 
   # GET /ideas/1/edit
   def edit
+    @idea = Idea.find(params[:id])
+    if @idea.user != current_user
+      #render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+      return
+    end
   end
 
   # POST /ideas
   # POST /ideas.json
   def create
-    @idea = Idea.new(idea_params)
+    @idea = current_user.ideas.build(idea_params)
+    #@idea = Idea.new(idea_params)
 
     respond_to do |format|
       if @idea.save

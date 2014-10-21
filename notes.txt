@@ -11,10 +11,10 @@ idea has_many: votes
 voting has_many: users
 vonting has_many: ideas
 
-
+# https://www.railstutorial.org/book/user_microposts
 #Migrations: http://guides.rubyonrails.org/migrations.html
 rails generate migration AddUserToIdeas user:string
-
+rails generate migration ChangeUserToIdeas user:references
 
 #Add Switch Button: http://www.bootstrap-switch.org/
 #Sort by Month: http://railscasts.com/episodes/29-group-by-month | http://asciicasts.com/episodes/29-group-by-month
@@ -68,6 +68,15 @@ c.save
 d = Area.create(name:"Business Development")
 d1 = Area.find(1)
 d2 = d1.update(name:"Business Development")
+
+#Git Branching and Merging: http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging
+$ git checkout -b iss53
+#Switched to a new branch 'iss53'
+$ git checkout master
+#Switched to branch 'master'
+$ git merge iss53
+$ git branch -d iss53
+#Deleted branch iss53 (was 3a0874c).
 
 
 localenv.yml

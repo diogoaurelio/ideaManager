@@ -9,7 +9,7 @@
             <h6> Description:"<em> <%= idea.description %> </em>"</h6>
             <h6> Area: <%= idea.area_list %></h6>
             <h6> Votes: <span class="badge"><%= idea.votes %></span></h6>
-            <p>Created at at <%= idea.created_at.to_date.to_s(:long) %></p> 
+            <p>Created at <%= idea.created_at.to_date.to_s(:long) %></p> 
           </div> 
           <% end %> 
           <br>

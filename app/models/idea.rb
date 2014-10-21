@@ -1,7 +1,12 @@
 class Idea < ActiveRecord::Base
+	belongs_to :user
+	#validates :user, presence: true
+	default_scope -> { order('created_at DESC') }
 	has_many :areainterfaces
 	has_many :areas, through: :areainterfaces
-	validates :name, :description, :area_list, presence: true
+	validates :name, :area_list, presence: true
+	validates :description, presence: true, length: { minimum: 5}
+	validates :name, uniqueness: true
 
 	def area_list=(areas_string)
 	  area_names = areas_string.split(",").collect{|s| s.strip.downcase}.uniq
