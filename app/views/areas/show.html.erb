@@ -1,7 +1,12 @@
 <h1>Ideas for <%= @area.name.capitalize %> business area</h1>
 
-<ul>
-  <% @area.ideas.each do |idea| %>
-    <li><%= link_to idea.name, idea_path(idea) %></li>
+<div class="row marketing dspace">
+  
+  <% @idea_months.sort.each do |month,ideas| %>
+  	<h3><%= month.strftime("%B %Y") %> Ideas</h3>
+  	<% ideas.each do |idea| %>
+    	<h4><%= link_to idea.name, idea_path(idea) %></h4>
+    <% end %>
   <% end %>
-</ul>
+
+</div>

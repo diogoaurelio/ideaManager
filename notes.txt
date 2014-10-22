@@ -2,6 +2,8 @@
 Dev helper Notes
 
 #Associations: http://guides.rubyonrails.org/association_basics.html
+bundle exec rake db:rollback
+add_column :ideas, :user_id, index: true
 
 Idea has_one: user
 user has_many ideas
