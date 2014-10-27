@@ -1,0 +1,39 @@
+
+#Notes on Voting Feature
+Source: http://paweljaniak.co.za/2013/07/25/5-star-ratings-with-rails/
+
+<% content_for :footer do %>
+  <#%= javascript_include_tag 'voting/jquery.raty' %>
+<% end %>
+
+add in css as well path to images
+
+rails g model Rating ideas:references user:references score:integer default: 0
+rake db:migrate
+
+
+# Adding associations to model
+
+# Rating.rb
+class Rating < ActiveRecord::Base
+  belongs_to :idea
+  belongs_to :user
+end
+
+# Idea.rb
+class Idea < ActiveRecord::Base
+  has_many :ratings
+  belongs_to :user
+end
+
+# User.rb
+class User < ActiveRecord::Base
+  has_many :ratings
+  has_many :ideas
+end
+
+# Routes
+resources :ratings, only: :update
+
+
+@rating = Rating.where(idea_id: @idea.id, user_id: @current_user.id).first unless @rating @rating = Rating.create(idea_id: @idea.id, user_id: @current_user.id, score: 0) end

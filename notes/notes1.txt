@@ -1,0 +1,86 @@
+
+Dev helper Notes
+
+#Associations: http://guides.rubyonrails.org/association_basics.html
+bundle exec rake db:rollback
+add_column :ideas, :user_id, index: true
+
+Idea has_one: user
+user has_many ideas
+
+idea has_many: votes
+
+voting has_many: users
+vonting has_many: ideas
+
+# https://www.railstutorial.org/book/user_microposts
+#Migrations: http://guides.rubyonrails.org/migrations.html
+rails generate migration AddUserToIdeas user:string
+rails generate migration ChangeUserToIdeas user:references
+
+#Add Switch Button: http://www.bootstrap-switch.org/
+#Sort by Month: http://railscasts.com/episodes/29-group-by-month | http://asciicasts.com/episodes/29-group-by-month
+
+Bootstrap setup: http://railscasts.com/episodes/328-twitter-bootstrap-basics?autoplay=true
+
+#Form Building: http://guides.rubyonrails.org/v2.3.11/form_helpers.html#binding-a-form-to-an-object
+#Associations: http://guides.rubyonrails.org/association_basics.html#belongs_to-association-reference
+
+rails g scaffold idea name price:decimal --skip-stylesheets
+<<<<<<< HEAD
+
+#Reference: http://tutorials.jumpstartlab.com/projects/blogger.html#i3:-tagging
+note to self: idea = article
+note to self: tag = area
+
+rails g model Idea name:string area:string votes:integer
+rails g model Area name:string 
+rails g model AreaInterface idea:references area:references
+
+#Since the relationship between area and ideas is a many-to-many, added an interface in between to make it easier to model
+/models/idea.rb
+Idea has_many :areainterfaces
+Idea has_many :areas, through: :areainterfaces
+
+/models/area.rb
+Area has_many :areainterfaces
+Area has_many :ideas, through: :areainterfaces
+
+/models/areainterface.rb
+Areainterface has_one :area
+Areainterface has_one :idea
+
+
+rails g controller areas
+
+#Note: Problem with Dropdown - solved changing order of rendering JavaScropt.
+#Note: Problem with wrong colors with Flash messages: corrected through this stackoverflow thread: http://stackoverflow.com/questions/22108286/wrong-color-for-flash-messages-under-rails-4-1-with-bootstrap-or-foundation
+
+#Change DB scheme: http://guides.rubyonrails.org/migrations.html
+rails g migration AddDescriptionToIdeas
+
+
+#Adding ability for selection of Areas from dropdown list of table Area:
+http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html
+
+
+c = Area.new
+c.name = "Business Development"
+c.save
+#Or:
+d = Area.create(name:"Business Development")
+d1 = Area.find(1)
+d2 = d1.update(name:"Business Development")
+
+#Git Branching and Merging: http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging
+$ git checkout -b iss53
+#Switched to a new branch 'iss53'
+$ git checkout master
+#Switched to branch 'master'
+$ git merge iss53
+$ git branch -d iss53
+#Deleted branch iss53 (was 3a0874c).
+
+
+localenv.yml
+
