@@ -21,7 +21,8 @@ rails generate migration ChangeUserToIdeas user:references
 
 Bootstrap setup: http://railscasts.com/episodes/328-twitter-bootstrap-basics?autoplay=true
 
-
+#Form Building: http://guides.rubyonrails.org/v2.3.11/form_helpers.html#binding-a-form-to-an-object
+#Associations: http://guides.rubyonrails.org/association_basics.html#belongs_to-association-reference
 
 rails g scaffold idea name price:decimal --skip-stylesheets
 <<<<<<< HEAD
