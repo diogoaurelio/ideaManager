@@ -11,12 +11,18 @@ class IdeasController < ApplicationController
 
   # GET /ideas/1
   # GET /ideas/1.json
+  def myideas
+    @user = current_user
+    @idea_months = @user.ideas.group_by { |t| t.created_at.beginning_of_month }
+  end
+
   def show
   end
 
   # GET /ideas/new
   def new
-    @idea = Idea.new(:user => current_user)
+    #@idea = Idea.new(:user => current_user)
+    @idea = Idea.new()
   end
 
   # GET /ideas/1/edit
