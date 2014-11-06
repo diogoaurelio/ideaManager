@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :ideas
+  resources :ideas do
+    member { post :vote } #Voting Ability
+  end
   get 'myideas' => 'ideas#myideas', :as => 'myideas'
   resources :areas
   # The priority is based upon order of creation: first created -> highest priority.

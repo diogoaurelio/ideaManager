@@ -10,11 +10,17 @@
             <h6>
             <% idea.areas.each do |area| %>
                Area(s): <%= link_to idea.area_list, area_path(area) %>
+               Vote:           
+               <!-- Add voting ability -->
+                <em>
+                <%= link_to "up", vote_idea_path(idea, type: "up"), method: "post" %> 
+    |           <%= link_to "down", vote_idea_path(idea, type: "down"), method: "post" %>
+                </em>
             <% end %>
             </h6>
-            <h6> Votes: <span class="badge"><%= idea.votes %></span></h6>
+            <h6> Votes: <span class="badge"><#%= idea.votes %></span></h6>
             <p>Created at <%= idea.created_at.to_date.to_s(:long) %></p> 
-          </div> 
+          </div>
           <% end %> 
           <br>
 
@@ -35,7 +41,7 @@
                 <% idea.areas.each do |area| %>
                   Area: <%= link_to idea.area_list, area_path(area) %>
                 <% end %>
-                <h6> Votes: <span class="badge"><%= idea.votes %></span></h6>
+                <h6> Votes: <span class="badge"><#%= idea.votes %></span></h6>
                 <%= link_to idea.name, idea %>
                 <%= link_to 'Edit', edit_idea_path(idea) %>
                 <%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -65,7 +71,7 @@
       <tr>
         <td><%= idea.name %></td>
         <td><%= idea.area_list %></td>
-        <td><%= idea.votes %></td>
+        <td><#%= idea.votes %></td>
         <td><%= link_to 'Show', idea %></td>
         <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
         <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>

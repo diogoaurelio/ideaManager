@@ -4,6 +4,8 @@ class Idea < ActiveRecord::Base
 	default_scope -> { order('created_at DESC') }
 	has_many :areainterfaces
 	has_many :areas, through: :areainterfaces
+	has_many :votes, dependent: :destroy
+	
 	validates :name, :area_list, presence: true
 	validates :description, presence: true, length: { minimum: 5}
 	validates :name, uniqueness: true
@@ -18,6 +20,16 @@ class Idea < ActiveRecord::Base
 		self.areas.collect do |area|
 			area.name
 		end.join(", ")
+	end
+
+	def self.by_votes
+		select('ideas.*, coalesce(value,0) as votes').
+		joins('left join idea_votes on idea_id=ideas.id').
+		order('votes desc')
+	end
+
+	def votes
+		read_attributes(:votes) || idea_votes.sum(:value)
 	end
 
 end

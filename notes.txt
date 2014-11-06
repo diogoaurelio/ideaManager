@@ -28,6 +28,12 @@ Bootstrap setup: http://railscasts.com/episodes/328-twitter-bootstrap-basics?aut
 rails g scaffold idea name price:decimal --skip-stylesheets
 <<<<<<< HEAD
 
+#Voting system:
+
+
+rails g model IdeaVote votes:integer idea:references user:references
+#generates idea_vote.rb model
+
 #Reference: http://tutorials.jumpstartlab.com/projects/blogger.html#i3:-tagging
 note to self: idea = article
 note to self: tag = area
